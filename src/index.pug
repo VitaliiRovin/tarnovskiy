@@ -77,8 +77,8 @@ html(lang="en")
                 img: "practice3"
               }
             ];
-          ul.practice__list.practice__list--grey
-            .practice__list-container.container
+          .practice__list
+            ul.practice__list-container.container
               each item in items
                 li.practice__item
                   h2 #{item.name}
@@ -102,8 +102,8 @@ html(lang="en")
                 img: "practice6"
               }
             ];
-          ul.practice__list
-            .practice__list-container.container
+          .practice__list
+            ul.practice__list-container.container
               each item in items
                 li.practice__item
                   +image(`content/${item.img}.jpg`, "practice__img")
@@ -127,8 +127,8 @@ html(lang="en")
                 img: "practice9"
               }
             ];
-          ul.practice__list.practice__list--grey
-            .practice__list-container.container
+          .practice__list
+            ul.practice__list-container.container
               each item in items
                 li.practice__item
                   +image(`content/${item.img}.jpg`, "practice__img")
