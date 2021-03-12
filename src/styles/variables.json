@@ -1,4 +1,9 @@
 {
+  "black-color": "#343434",
+  "white-color": "#fff",
+  "gold-color": "#b38a4c",
+  "grey-color": "#f7f7f7",
+
   "text-color": "#414c63",
   "links-color": "#4b6fd7",
   "errors-color": "#cd1515",

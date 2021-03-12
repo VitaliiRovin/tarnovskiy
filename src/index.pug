@@ -9,7 +9,137 @@ html(lang="en")
     title Portfolio | main page
   body
     .wrapper
-      .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+      header.header
+        .header__container.container
+          .header__logo
+            a.header__link(href="#hero")
+              +image("content/logo.png", "logo", "логотип")
+          .header__nav
+            nav.menu
+              -
+                var items = [
+                  {href: "#hero", name: "Главная"},
+                  {href: "#practice", name: "Юридическая практика"},
+                  {href: "#inst", name: "Instagram"},
+                  {href: "#contacts", name: "Контакты"},
+                  {href: "#more", name: "Еще"}
+                ];
+              ul.menu__list
+                each item in items
+                  li.menu__item
+                    a.menu__link(href=item.href) #{item.name}
+          .header__links
+            -
+              var icons = [
+                {href: "https://www.instagram.com/yourist_msk/", name: "insta"},
+                {href: "https://www.facebook.com/YouRistMSK", name: "facebook"}
+              ];
+            ul.socials
+              each icon in icons
+                li.socials__item
+                  a.socials__link(href=icon.href)
+                    +icon(icon.name, "socials__icon")
+
+      section.hero(id="hero")
+        .hero__container.container
+          .hero__content
+            h1 Никита Тарновский #[br]Ваш Юрист
+            h2 Защита Ваших интересов превыше всего
+            h3 Ищите Юриста или Представителя в Москве?
+            p Я, предлагаю полный спектр юридической поддержки. Если у вас есть юридическая проблема или вопрос, я смогу
+              | предложить вам лучшее решение в г. Москва. У меня репутация юриста, который использует творческий подход к
+              | судебным разбирательствам и всегда добивается исключительных результатов там, где другим это не удается.
+              |Я занимаюсь юридической, адвокатской практикой с 2010 года.
+            .hero__btn
+              a.btn(href="contacts") Контакты
+
+      section.practice(id="practice")
+        .practice__header
+          .practice__header-container.container
+            h2 Направления юридической практики
+            h3 Наша команда профессиональных Юристов и Адвокатов оказывает помощь по следующим направлениям
+        .practice__content
+          -
+            var items = [
+              {
+                name:"Арбитраж",
+                desc: "Любая категория дел, от Приказов до Банкротства",
+                img:"practice1"
+              },
+              {
+                name: "Согласование условий договора",
+                desc: "Полностью уникальный договор по вашим условиям для защиты интересов",
+                img: "practice2"
+              },
+              {
+                name: "Взаимодействия с Гос.Органами",
+                desc: "Консультация по обращениям и защите интересов",
+                img: "practice3"
+              }
+            ];
+          ul.practice__list.practice__list--grey
+            .practice__list-container.container
+              each item in items
+                li.practice__item
+                  h2 #{item.name}
+                  +image(`content/${item.img}.jpg`, "practice__img")
+                  h3 #{item.desc}
+          -
+            var items = [
+              {
+                name: "Гражданско-правовые споры",
+                desc: "Защита и Представительство в Судах",
+                img: "practice4"
+              },
+              {
+                name: "Защита Прав Потребителей",
+                desc: "Огромный опыт успешных дел",
+                img: "practice5"
+              },
+              {
+                name: "Возмещение вреда жизни или здоровью",
+                desc: "Помощь после ДТП, Несчастных Случаев на производстве, Гибели",
+                img: "practice6"
+              }
+            ];
+          ul.practice__list
+            .practice__list-container.container
+              each item in items
+                li.practice__item
+                  +image(`content/${item.img}.jpg`, "practice__img")
+                  h2 #{item.name}
+                  h3 #{item.desc}
+          -
+            var items = [
+              {
+                name: "Подготовка и обучение Бизнес -Процессам",
+                desc: "Создание карты взаимодействий отделов, обучение документо-обороту и многое другое",
+                img: "practice7"
+              },
+              {
+                name: "Бракоразводный процесс и Взыскание Алиментов",
+                desc: "Конфиденциальность и урегулирование разногласий",
+                img: "practice8"
+              },
+              {
+                name: "Судебный возврат долгов по распискам, договорам",
+                desc: "Как вернуть деньги по расписке? - обратитесь к нам",
+                img: "practice9"
+              }
+            ];
+          ul.practice__list.practice__list--grey
+            .practice__list-container.container
+              each item in items
+                li.practice__item
+                  +image(`content/${item.img}.jpg`, "practice__img")
+                  h2 #{item.name}
+                  h3 #{item.desc}
+
+
+      section.inst(id="inst")
+
+
+      section.contacts(id="contacts")
+
+
+      section.more(id="more")
