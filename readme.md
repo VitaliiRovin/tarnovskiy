@@ -28,3 +28,4 @@ $ npm run имя_скрипта
 ```sh
 $ yarn имя_скрипта
 ```
+"# tarnovskiy" 
