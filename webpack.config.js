@@ -10,7 +10,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isProductionBuild = argv.mode === "production";
-  const publicPath = "./tarnovskiy/dist/";
+  const publicPath = "/tarnovskiy/dist/";
 
   const pcss = {
     test: /\.(p|post|)css$/,
