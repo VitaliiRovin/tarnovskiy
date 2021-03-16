@@ -6,7 +6,7 @@ if (process.env.NODE_ENV === "development") {
 
 import "./scripts/skills";
 
-window.onload = function () {
+window.onload = function () {//прокрутка якарей
   const anchors = document.querySelectorAll('a[href*="#"]')
 
   for (let anchor of anchors) {
@@ -14,10 +14,13 @@ window.onload = function () {
       e.preventDefault()
 
       const blockID = anchor.getAttribute('href').substr(1)
+      let heightMenu = document.getElementsByTagName('header')[0].getBoundingClientRect().height;
+      let position = document.getElementById(blockID).getBoundingClientRect();
 
-      document.getElementById(blockID).scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+      window.scrollTo({
+        top: position.top + window.scrollY - heightMenu,
+        left: position.left,
+        behavior: "smooth"
       })
     })
   }
