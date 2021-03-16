@@ -3,6 +3,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    filter: grayscale(50%);
 }
 
 .practice__header-container {
@@ -37,8 +38,14 @@
         background-color: $grey-color;
 
         .practice__item {
+            width: 300px;
             display: grid;
-            grid-template-rows: 130px 380px 100px;
+            grid-template-rows: 70px 240px 100px;
+            grid-gap: 50px;
+        }
+
+        .practice__list-container {
+            max-width: 1200px;
         }
     }
 
@@ -69,18 +76,25 @@
 }
 
 .practice__img {
-    width: 300px;
+    min-width: 300px;
+    max-width: 450px;
+    width: 100%;
     height: 300px;
     object-fit: cover;
 }
 
 .practice__item {
     min-width: 300px;
-    width: 300px;
+    width: 450px;
+    margin-right: 20px;
+
+    &:last-child {
+        margin-right: 0;
+    }
 
     & h2 {
         color: $gold-color;
-        font-size: 24px;
+        font-size: 22px;
     }
 
     & h3 {

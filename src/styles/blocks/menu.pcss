@@ -1,12 +1,26 @@
+.menu {
+    display: flex;
+}
+
 .menu__list {
     display: flex;
 }
 
 .menu__item {
     margin-right: 20px;
+    display: flex;
+    align-items: center;
+
+    &:last-child {
+        position: relative;
+    }
 }
 
 .menu__link {
+    cursor: pointer;
     text-decoration: none;
     color: $black-color;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
 }

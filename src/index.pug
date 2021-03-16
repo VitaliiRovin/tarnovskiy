@@ -22,12 +22,23 @@ html(lang="en")
                   {href: "#practice", name: "Юридическая практика"},
                   {href: "#inst", name: "Instagram"},
                   {href: "#contacts", name: "Контакты"},
-                  {href: "#more", name: "Еще"}
+                  {hrefOne: "#practiceOne", hrefTwo: "#practiceTwo", name: "Еще", nameTwo: "Направления юридической практики"}
                 ];
               ul.menu__list
                 each item in items
-                  li.menu__item
-                    a.menu__link(href=item.href) #{item.name}
+                  if item.name === "Еще"
+                    li.menu__item
+                      .menu__link.dropdown #{item.name}
+                        .dropdown__menu
+                          ul.dropdown__list
+                            li.dropdown__item
+                              a.dropdown__link(href=item.hrefOne) #{item.nameTwo}
+                            li.dropdown__item
+                              a.dropdown__link(href=item.hrefTwo) #{item.nameTwo}
+                  else
+                    li.menu__item
+                      a.menu__link(href=item.href) #{item.name}
+
           .header__links
             -
               var icons = [
@@ -40,8 +51,11 @@ html(lang="en")
                   a.socials__link(href=icon.href)
                     +icon(icon.name, "socials__icon")
 
+
       section.hero(id="hero")
-        .hero__container.container
+        .hero__bg
+          +image("background/moscow.jpg", "hero__img", "картинка москвы")
+        .hero__container
           .hero__content
             h1 Никита Тарновский #[br]Ваш Юрист
             h2 Защита Ваших интересов превыше всего
@@ -51,7 +65,7 @@ html(lang="en")
               | судебным разбирательствам и всегда добивается исключительных результатов там, где другим это не удается.
               |Я занимаюсь юридической, адвокатской практикой с 2010 года.
             .hero__btn
-              a.btn(href="contacts") Контакты
+              a.btn(href="#contacts") Контакты
 
       section.practice(id="practice")
         .practice__header
@@ -77,7 +91,7 @@ html(lang="en")
                 img: "practice3"
               }
             ];
-          .practice__list
+          .practice__list(id="practiceOne")
             ul.practice__list-container.container
               each item in items
                 li.practice__item
@@ -102,7 +116,7 @@ html(lang="en")
                 img: "practice6"
               }
             ];
-          .practice__list
+          .practice__list(id="practiceTwo")
             ul.practice__list-container.container
               each item in items
                 li.practice__item
@@ -135,11 +149,36 @@ html(lang="en")
                   h2 #{item.name}
                   h3 #{item.desc}
 
-
       section.inst(id="inst")
 
 
       section.contacts(id="contacts")
+        .contacts__pic
+        .contacts__content
+          .contacts__container
+            .contacts__text
+              .contacts__title Связаться
+              p Ленинградский пр-т., 47 стр. 1
+              p tarkit@gmail.com
+              p На связи 24\7 для наших клиентов
+            .contacts__form
+              form.form
+                .form__row
+                  input.form__input(placeholder="Имя")
+                .form__row
+                  input.form__input(placeholder="Адрес")
+                .form__row
+                  .form__col
+                    input.form__input(placeholder="Эл.почта")
+                  .form__col
+                    input.form__input(placeholder="Телефон")
+                .form__row
+                  input.form__input(placeholder="Тема")
+                .form__row
+                  textarea.form__input.form__input--textarea(placeholder="Добавьте сообщение...")
+                button.form__btn(type="submit") Отправить
 
+      section.map(id="")
 
-      section.more(id="more")
+      footer.footer
+        .footer__text &copy;2021 Ваш Юрист в Москве.
