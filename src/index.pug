@@ -166,11 +166,13 @@ html(lang="en")
               form.form
                 .form__row
                   input.form__input(placeholder="Имя", type="text", name="name" required)
+                  .form__validate
                 .form__row
                   input.form__input(placeholder="Адрес", type="text")
                 .form__row
                   .form__col
                     input.form__input(placeholder="Эл.почта", type="email", name="email" required)
+                    .form__validate
                   .form__col
                     input.form__input(placeholder="Телефон", type="tel")
                 .form__row

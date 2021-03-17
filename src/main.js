@@ -51,28 +51,6 @@ window.onload = function () {
   api();
 
 
-  // let validation = () => {//валидация формы
-  //   const myForm = document.querySelector('.form');
-  //   const btn = document.querySelector('.form__btn');
-  //
-  //   send.addEventListener('click', e => {
-  //     e.preventDefault();
-  //
-  //     if (validateForm(myForm)) {
-  //       console.log('отправка данныхна сервер');
-  //     }
-  //   });
-  //
-  //   function validateForm(form) {
-  //     let valid = true;
-  //
-  //
-  //     }
-  //   }
-  // };
-  // validation();
-
-
   let scrollEffect = () => {//прокрутка якарей
     const anchors = document.querySelectorAll('a[href*="#"]')
 
@@ -121,5 +99,51 @@ window.onload = function () {
     };
   }
   parallaxEffect();
+
+  let validation = () => {//валидация формы
+    const myForm = document.querySelector('.form');
+    const send = document.querySelector('.form__btn');
+
+    send.addEventListener('click', e => {
+      e.preventDefault();
+
+      if (validateForm(myForm)) {
+        console.log('отправка данных на сервер');
+      }
+    });
+
+    function validateForm(form) {
+      let valid = true;
+
+      if (!validateField(form.elements.name)) {
+        valid = false;
+      }
+
+      if (!validateField(form.elements.email)) {
+        valid = false;
+      }
+
+      return valid;
+    }
+
+    function validateField(field) {
+      let fieldError = field.nextElementSibling;
+
+      if(!field.checkValidity()) {
+        fieldError.textContent = field.validationMessage;
+        field.classList.add('form__input--error')
+        fieldError.style.display = "block";
+
+        return false;
+      } else {
+        fieldError.textContent = '';
+        field.classList.remove('form__input--error')
+        fieldError.style.display = "none";
+
+        return true;
+      }
+    }
+  };
+  validation();
 }
 
