@@ -7,6 +7,7 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Portfolio | main page
+    script(src="https://api-maps.yandex.ru/2.1/?apikey=4c6eeddf-a2c0-42d3-a7f6-d791db37802d&lang=ru_RU" type="text/javascript")
   body
     .wrapper
       header.header
@@ -164,21 +165,21 @@ html(lang="en")
             .contacts__form
               form.form
                 .form__row
-                  input.form__input(placeholder="Имя")
+                  input.form__input(placeholder="Имя", type="text", name="name" required)
                 .form__row
-                  input.form__input(placeholder="Адрес")
+                  input.form__input(placeholder="Адрес", type="text")
                 .form__row
                   .form__col
-                    input.form__input(placeholder="Эл.почта")
+                    input.form__input(placeholder="Эл.почта", type="email", name="email" required)
                   .form__col
-                    input.form__input(placeholder="Телефон")
+                    input.form__input(placeholder="Телефон", type="tel")
                 .form__row
-                  input.form__input(placeholder="Тема")
+                  input.form__input(placeholder="Тема", type="text")
                 .form__row
                   textarea.form__input.form__input--textarea(placeholder="Добавьте сообщение...")
                 button.form__btn(type="submit") Отправить
 
-      section.map(id="")
+      section.map(id="map")
 
       footer.footer
         .footer__text &copy;2021 Ваш Юрист в Москве.
