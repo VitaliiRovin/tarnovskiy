@@ -108,7 +108,20 @@ window.onload = function () {
       e.preventDefault();
 
       if (validateForm(myForm)) {
+        const send = document.querySelector('.form__btn');
+        const thanks = document.querySelector('.form__thanks')
+
+        send.classList.add('form__btn--send')
+        thanks.style.opacity = "1";
+
+        function timerOpacity() {
+          send.classList.remove('form__btn--send')
+          thanks.style.opacity = "0";
+        }
+
+        setTimeout(timerOpacity, 2000)
         console.log('отправка данных на сервер');
+        myForm.reset();
       }
     });
 
@@ -128,6 +141,7 @@ window.onload = function () {
 
     function validateField(field) {
       let fieldError = field.nextElementSibling;
+
 
       if(!field.checkValidity()) {
         fieldError.textContent = field.validationMessage;
