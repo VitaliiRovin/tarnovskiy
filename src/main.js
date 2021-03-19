@@ -51,7 +51,7 @@ window.onload = function () {
   api();
 
 
-  let scrollEffect = () => {//прокрутка якарей
+  let scrollEffect = () => {//плавная прокрутка страницы
     const anchors = document.querySelectorAll('a[href*="#"]')
 
     for (let anchor of anchors) {
@@ -100,6 +100,56 @@ window.onload = function () {
   }
   parallaxEffect();
 
+  let sliderInst = () => {//слайдер instagram
+    const close = document.querySelector('.fullscreen__close');
+    const left = document.querySelector('.fullscreen__left');
+    const right = document.querySelector('.fullscreen__right');
+    const fullscreen = document.querySelector('.fullscreen');
+    const fullscreenItems = document.querySelectorAll('.fullscreen__item')
+    const items = document.querySelectorAll('.inst__item');
+    let active = 0;
+
+    for (let i = 0; i < items.length; i++) {
+      items[i].addEventListener('click', evt => {
+        evt.preventDefault();
+
+        fullscreen.classList.add('fullscreen--active');
+        fullscreenItems[i].classList.add('fullscreen__item--active');
+        fullscreenItems[active].classList.remove('fullscreen__item--active');
+        active = i;
+        console.log(active)
+
+        left.addEventListener('click', evt => {
+          evt.preventDefault();
+
+          fullscreenItems[--i].classList.add('fullscreen__item--active');
+          fullscreenItems[active].classList.remove('fullscreen__item--active');
+          active = i;
+          console.log(active)
+        })
+
+        right.addEventListener('click', evt => {
+          evt.preventDefault();
+
+          fullscreenItems[++i].classList.add('fullscreen__item--active');
+          fullscreenItems[active].classList.remove('fullscreen__item--active');
+          active = i;
+          console.log(active)
+        })
+
+        close.addEventListener('click', evt => {
+          evt.preventDefault();
+
+          fullscreen.classList.remove('fullscreen--active')
+          fullscreenItems[active].classList.remove('fullscreen__item--active');
+          console.log(active)
+        })
+      })
+    }
+  }
+  sliderInst();
+
+
   let validation = () => {//валидация формы
     const myForm = document.querySelector('.form');
     const send = document.querySelector('.form__btn');
@@ -114,12 +164,16 @@ window.onload = function () {
         send.classList.add('form__btn--send')
         thanks.style.opacity = "1";
 
-        function timerOpacity() {
+        function timerBtn() {
           send.classList.remove('form__btn--send')
+        }
+
+        function timerThanks() {
           thanks.style.opacity = "0";
         }
 
-        setTimeout(timerOpacity, 2000)
+        setTimeout(timerThanks, 1500)
+        setTimeout(timerBtn, 500)
         console.log('отправка данных на сервер');
         myForm.reset();
       }
@@ -143,7 +197,7 @@ window.onload = function () {
       let fieldError = field.nextElementSibling;
 
 
-      if(!field.checkValidity()) {
+      if (!field.checkValidity()) {
         fieldError.textContent = field.validationMessage;
         field.classList.add('form__input--error')
         fieldError.style.display = "block";
