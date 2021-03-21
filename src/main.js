@@ -100,54 +100,55 @@ window.onload = function () {
   }
   parallaxEffect();
 
-  let sliderInst = () => {//слайдер instagram
-    const close = document.querySelector('.fullscreen__close');
-    const left = document.querySelector('.fullscreen__left');
-    const right = document.querySelector('.fullscreen__right');
-    const fullscreen = document.querySelector('.fullscreen');
-    const fullscreenItems = document.querySelectorAll('.fullscreen__item')
-    const items = document.querySelectorAll('.inst__item');
-    let active = 0;
-
-    for (let i = 0; i < items.length; i++) {
-      items[i].addEventListener('click', evt => {
-        evt.preventDefault();
-
-        fullscreen.classList.add('fullscreen--active');
-        fullscreenItems[i].classList.add('fullscreen__item--active');
-        fullscreenItems[active].classList.remove('fullscreen__item--active');
-        active = i;
-        console.log(active)
-
-        left.addEventListener('click', evt => {
-          evt.preventDefault();
-
-          fullscreenItems[--i].classList.add('fullscreen__item--active');
-          fullscreenItems[active].classList.remove('fullscreen__item--active');
-          active = i;
-          console.log(active)
-        })
-
-        right.addEventListener('click', evt => {
-          evt.preventDefault();
-
-          fullscreenItems[++i].classList.add('fullscreen__item--active');
-          fullscreenItems[active].classList.remove('fullscreen__item--active');
-          active = i;
-          console.log(active)
-        })
-
-        close.addEventListener('click', evt => {
-          evt.preventDefault();
-
-          fullscreen.classList.remove('fullscreen--active')
-          fullscreenItems[active].classList.remove('fullscreen__item--active');
-          console.log(active)
-        })
-      })
-    }
-  }
-  sliderInst();
+  // let sliderInst = () => {//слайдер instagram
+  //   const close = document.querySelector('.fullscreen__close');
+  //   const left = document.querySelector('.fullscreen__left');
+  //   const right = document.querySelector('.fullscreen__right');
+  //   const fullscreen = document.querySelector('.fullscreen');
+  //   const fullscreenItems = document.querySelectorAll('.fullscreen__item')
+  //   const items = document.querySelectorAll('.inst__item');
+  //   let active = 0;
+  //
+  //   for (let i = 0; i < items.length; i++) {
+  //     items[i].addEventListener('click', evt => {
+  //       evt.preventDefault();
+  //
+  //       fullscreen.classList.add('fullscreen--active');
+  //       fullscreenItems[i].classList.add('fullscreen__item--active');
+  //       fullscreenItems[active].classList.remove('fullscreen__item--active');
+  //       active = i;
+  //       console.log(active)
+  //
+  //       left.addEventListener('click', evt => {
+  //         evt.preventDefault();
+  //
+  //         fullscreenItems[--i].classList.add('fullscreen__item--active');
+  //         fullscreenItems[active].classList.remove('fullscreen__item--active');
+  //         active = i;
+  //         console.log(active)
+  //       })
+  //
+  //       right.addEventListener('click', evt => {
+  //         evt.preventDefault();
+  //
+  //         fullscreenItems[++i].classList.add('fullscreen__item--active');
+  //         fullscreenItems[active].classList.remove('fullscreen__item--active');
+  //         active = i;
+  //         console.log(active)
+  //       })
+  //
+  //       close.addEventListener('click', evt => {
+  //         evt.preventDefault();
+  //
+  //         fullscreen.classList.remove('fullscreen--active')
+  //         fullscreenItems[active].classList.remove('fullscreen__item--active');
+  //
+  //         console.log(active)
+  //       })
+  //     })
+  //   }
+  // }
+  // sliderInst();
 
 
   let validation = () => {//валидация формы
